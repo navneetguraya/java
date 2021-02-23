@@ -9,7 +9,7 @@ pipeline {
             steps {
                 git branch: 'main',
                 credentialsId: 'a06e7c70-ecfc-48f7-ac37-137afc0ce5c1',
-                url: 'https://github.com/navneetguraya/dev.git'
+                url: 'https://github.com/navneetguraya/java.git'
                 }
         }
         stage('Test') {
