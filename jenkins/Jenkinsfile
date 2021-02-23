@@ -28,12 +28,12 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'java -jar target/my-app-1.0-SNAPSHOT.jar target/my-app-1.0-SNAPSHOT.war'
+                sh './jenkins/scripts/deliver.sh'
             }
         }
         stage ('Creat War File') {
             steps {
-                sh 'jar -cvf target/classes/com/mycompany/app/*.class /target/'
+                sh 'java -jar target/my-app-1.0-SNAPSHOT.jar target/my-app-1.0-SNAPSHOT.war'
                 }
             }
             stage ('Deploy War File') {
