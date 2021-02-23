@@ -33,7 +33,7 @@ pipeline {
         }
         stage ('Creat War File') {
             steps {
-                sh 'jar -cvf target/classes/com/mycompany/app/*.class /target/'
+                sh 'jar -cvf target/classes/com/mycompany/app/*.class /target/*.jar'
                 }
             }
             stage ('Deploy War File') {
