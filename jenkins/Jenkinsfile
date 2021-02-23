@@ -31,11 +31,6 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        stage ('Creat War File') {
-            steps {
-                sh 'java -jar target/my-app-1.0-SNAPSHOT.jar target/my-app-1.0-SNAPSHOT.war'
-                }
-            }
             stage ('Deploy War File') {
             steps {
                 sh "cp target/my-app-1.0-SNAPSHOT.war /etc/apache-tomcat-8.5.61/webapps/"
