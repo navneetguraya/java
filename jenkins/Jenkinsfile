@@ -5,13 +5,18 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
+        stage('Git Checkout') {
             steps {
                 git branch: 'main',
                 credentialsId: 'a06e7c70-ecfc-48f7-ac37-137afc0ce5c1',
                 url: 'https://github.com/navneetguraya/java.git'
                 }
         }
+        stage ('Compile') {
+            steps {
+                sh 'mvn compile'
+                }
+            }   
         stage('Test') {
             steps {
                 sh 'mvn test'
