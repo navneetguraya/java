@@ -1,15 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
+    agent any
+    tools {
+        maven 'maven'
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
+                git branch: 'main',
+                credentialsId: 'a06e7c70-ecfc-48f7-ac37-137afc0ce5c1',
+                url: 'https://github.com/navneetguraya/dev.git'
+                }
         }
         stage('Test') {
             steps {
