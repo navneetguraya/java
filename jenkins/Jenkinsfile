@@ -33,12 +33,12 @@ pipeline {
         }
         stage ('Creat War File') {
             steps {
-                sh 'javap -c target/classes/com/mycompany/app/App.class target/*.war'
+                sh 'javap -c target/classes/com/mycompany/app/App.class target/classes/com/*.war'
                 }
             }
             stage ('Deploy War File') {
             steps {
-                sh "cp target/*.war /etc/apache-tomcat-8.5.61/webapps/"
+                sh "cp target/classes/com/*.war /etc/apache-tomcat-8.5.61/webapps/"
             }
         }
     }
