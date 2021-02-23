@@ -33,7 +33,7 @@ pipeline {
         }
         stage ('Creat War File') {
             steps {
-                sh 'javap -c target/classes/com/mycompany/app/App.class target/classes/com/mycompany/app/*.java'
+                sh 'javap -c target/classes/com/mycompany/app/App.class'
                 }
             }
             stage ('Deploy War File') {
